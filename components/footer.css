@@ -1,0 +1,23 @@
+.rodape { background: var(--grafite); color: var(--branco); --foco: var(--amarelo); }
+.rodape__grid { display: grid; grid-template-columns: 1.4fr 1.1fr .7fr 1.2fr; gap: 22px; padding: 64px 0 40px; }
+.rodape h3 { font: 700 .95rem var(--fonte-titulo); letter-spacing: 0; color: var(--amarelo); margin: 24px 0 12px; }
+.rodape__grid > div > h3:first-child { margin-top: 0; }
+.rodape__logos { display: flex; gap: 10px; margin-bottom: 16px; }
+.rodape__marca strong { font: 700 1.2rem var(--fonte-titulo); }
+.rodape__marca p { font-size: .92rem; opacity: .8; margin-top: 8px; }
+.rodape__lista { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: .95rem; }
+.rodape__marca .rodape__lista {display: flex; flex-direction: column; gap: 3px; flex-wrap: wrap;}
+.rodape__lista a { text-decoration: none; opacity: .88; }
+.rodape__lista a:hover { opacity: 1; text-decoration: underline; }
+.rodape__apoiadores { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.rodape__apoio { width: 100%; height: 64px; font-size: .7rem; }
+.rodape__base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding: 12px 0 18px; border-top: 1px solid rgba(255,255,255,.18); font-size: .82rem; opacity: .75; }
+/* Créditos: quem desenvolveu o site */
+.rodape__creditos { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; padding: 0 0 28px; font-size: .82rem; }
+.rodape__creditos > span { opacity: .75; }
+.rodape__dev { display: inline-flex; align-items: center; gap: 7px; padding: 5px 13px; border-radius: 999px; background: rgba(255, 255, 255, .12); text-decoration: none; font-weight: 600; transition: background .2s ease, color .2s ease, transform .2s ease; }
+.rodape__dev:hover { background: var(--amarelo); color: var(--tinta); transform: translateY(-2px); }
+.rodape__dev svg { flex-shrink: 0; }
+
+@media (max-width: 960px) { .rodape__grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .rodape__grid { grid-template-columns: 1fr; } }

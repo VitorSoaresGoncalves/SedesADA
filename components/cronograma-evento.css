@@ -1,0 +1,33 @@
+/* Estilos do <cronograma-evento> — cartão compacto, ao lado do contador */
+cronograma-evento { display: block; }
+.cronograma { padding: 26px 26px 22px; border-radius: var(--raio); background: var(--branco); color: var(--tinta); --foco: var(--roxo); }
+.cronograma__cab { margin: 0 0 14px; font: 800 1.3rem/1.2 var(--fonte-titulo); letter-spacing: -.025em; }
+
+/* cor de cada tipo de atividade (fita e horários) */
+.c-roxo { --cor: var(--roxo); color: var(--branco); }
+.c-vermelho { --cor: var(--vermelho); color: var(--branco); }
+.c-amarelo { --cor: var(--amarelo); color: var(--tinta); }
+.c-verde { --cor: var(--verde); color: var(--branco); }
+.c-azul { --cor: var(--azul); color: var(--branco); }
+.c-neutro { --cor: #E4DEF7; color: var(--tinta); }
+
+/* linha do dia: largura proporcional à duração */
+.cronograma__barra { display: flex; gap: 4px; height: 12px; margin-bottom: 16px; }
+.cronograma__barra span { background: var(--cor); border-radius: 999px; }
+
+.cronograma__lista { list-style: none; margin: 0; padding: 0; }
+.cronograma__item { display: grid; grid-template-columns: 8.4rem 1fr; align-items: center; gap: 14px; padding: 7px 0; }
+.cronograma__hora {
+  justify-self: start; width: 8.4rem; text-align: center; padding: 5px 10px; white-space: nowrap; border-radius: 999px;
+  font: 700 .8rem/1.3 var(--fonte-texto); font-variant-numeric: tabular-nums; background: var(--cor);
+}
+.cronograma__titulo { font: 600 .92rem/1.3 var(--fonte-texto); }
+
+/* atividade em andamento (só no dia do evento) */
+.cronograma__item--agora .cronograma__titulo::after {
+  content: "Agora"; margin-left: 8px; padding: 2px 9px; vertical-align: middle; border-radius: 999px;
+  font: 700 .7rem var(--fonte-texto); background: var(--vermelho); color: var(--branco);
+}
+.cronograma__item--agora .cronograma__hora { outline: 3px solid color-mix(in srgb, var(--vermelho) 45%, transparent); outline-offset: 2px; }
+
+@media (max-width: 420px) { .cronograma__item { grid-template-columns: 1fr; gap: 4px; } }

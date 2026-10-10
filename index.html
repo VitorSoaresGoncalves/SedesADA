@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sedes | Jornada Ada Lovelace</title>
+  <link rel="stylesheet" href="padrao.css">
+  <link rel="stylesheet" href="components/componentes.css">
+  <link rel="stylesheet" href="components/plataforma.css">
+  <link rel="icon" type="image/png" href="images/icon-principal.png?v=2">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Ir para o conteúdo</a>
+
+  <header class="cabecalho">
+    <div class="container cabecalho__in">
+      <a class="marca" href="index.html">
+        <span class="marca__nome"><strong>Jornada Ada Lovelace</strong><small>Oficinas STEM para meninas</small></span>
+      </a>
+      <a class="botao botao--amarelo" style="margin-left:auto" href="criar-sede.html">Criar minha sede</a>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero hero-pagina">
+      <div class="container">
+        <h1>Encontre a <span class="marca-texto">sede</span> da sua cidade</h1>
+        <p class="lead">Cada sede organiza as próprias oficinas, com data, local e inscrição próprios. Escolha uma para ver os detalhes.</p>
+      </div>
+    </section>
+    <div class="faixa-cores" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
+    <section class="secao">
+      <div class="container">
+        <div class="hub-busca">
+          <input id="busca" type="search" placeholder="Buscar por cidade ou instituição" aria-label="Buscar sede">
+        </div>
+        <ul class="sedes-grade" id="sedes" aria-live="polite"></ul>
+        <p class="hub-vazio" id="vazio" hidden></p>
+      </div>
+    </section>
+
+    <section class="secao secao--roxo secao--binario">
+      <div class="container" style="text-align:center">
+        <h2 style="margin-inline:auto;max-width:20ch">Quer organizar na sua cidade?</h2>
+        <p class="lead" style="margin-inline:auto">Preencha um formulário com as informações da sua sede e receba um site próprio, com inscrições e planilha.</p>
+        <div class="botoes" style="justify-content:center">
+          <a class="botao botao--amarelo botao--grande" href="criar-sede.html">Criar minha sede</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="faixa-cores" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="container"><div class="rodape__base" style="border:0"><span>Jornada Latino-Americana de Oficinas STEM · Ada Lovelace Day</span></div></div>
+  </footer>
+
+  <script src="components/plataforma.js"></script>
+  <script>
+    (function () {
+      var P = window.PLATAFORMA, cores = ['roxo', 'vermelho', 'azul', 'verde', 'amarelo'];
+      var lista = document.getElementById('sedes'), vazio = document.getElementById('vazio'), todas = [];
+
+      function card(s, i) {
+        var cor = cores[i % cores.length];
+        var li = document.createElement('li'), a = document.createElement('a');
+        a.className = 'sede-card' + (cor === 'amarelo' ? ' sede-card--amarelo' : '');
+        a.style.setProperty('--cor', 'var(--' + cor + ')');
+        a.href = 'sede/index.html?s=' + encodeURIComponent(s.slug);
+        if (s.logo) {
+          var box = document.createElement('div'), img = document.createElement('img');
+          box.className = 'sede-card__logo'; img.src = P.url(s.logo); img.alt = '';
+          box.appendChild(img); a.appendChild(box);
+        }
+        var h = document.createElement('h3'); h.textContent = s.nome; a.appendChild(h);
+        var p = document.createElement('p');
+        p.textContent = [s.instituicao, s.cidade].filter(Boolean).join(' · '); a.appendChild(p);
+        if (s.data) { var m = document.createElement('small'); m.textContent = s.data; a.appendChild(m); }
+        li.appendChild(a); return li;
+      }
+
+      function mostrar(txt) {
+        var t = (txt || '').toLowerCase();
+        var f = todas.filter(function (s) { return (s.nome + ' ' + s.instituicao + ' ' + s.cidade).toLowerCase().indexOf(t) > -1; });
+        lista.innerHTML = '';
+        f.forEach(function (s, i) { lista.appendChild(card(s, i)); });
+        vazio.hidden = f.length > 0;
+        vazio.textContent = todas.length ? 'Nenhuma sede encontrada para essa busca.' : 'Ainda não há sedes publicadas. Que tal criar a primeira?';
+      }
+
+      var url = P.apiUrl ? P.apiUrl + '?acao=listar' : P.url('sedes/index.json');
+      fetch(url).then(function (r) { return r.json(); })
+        .then(function (d) { todas = Array.isArray(d) ? d : (d.sedes || []); mostrar(''); })
+        .catch(function () { vazio.hidden = false; vazio.textContent = 'Não foi possível carregar as sedes agora. Tente de novo em instantes.'; });
+
+      document.getElementById('busca').addEventListener('input', function (e) { mostrar(e.target.value); });
+    })();
+  </script>
+</body>
+</html>

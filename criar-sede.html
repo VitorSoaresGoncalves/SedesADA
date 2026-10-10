@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Criar sede | Jornada Ada Lovelace</title>
+  <link rel="stylesheet" href="padrao.css">
+  <link rel="stylesheet" href="components/componentes.css">
+  <link rel="stylesheet" href="components/plataforma.css">
+  <link rel="icon" type="image/png" href="images/icone.png">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Ir para o conteúdo</a>
+
+  <header class="cabecalho">
+    <div class="container cabecalho__in">
+      <a class="marca" href="index.html">
+        <span class="marca__nome"><strong>Jornada Ada Lovelace</strong><small>Oficinas STEM para meninas</small></span>
+      </a>
+      <a class="botao botao--amarelo" style="margin-left:auto" href="index.html">Ver sedes</a>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero hero-pagina">
+      <div class="container">
+        <h1>Crie o site da sua <span class="marca-texto">sede</span></h1>
+        <p class="lead">Preencha os dados da sua sede. Você recebe um endereço próprio, uma página de inscrição e uma planilha só sua.</p>
+      </div>
+    </section>
+    <div class="faixa-cores" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
+    <section class="secao secao--creme">
+      <div class="container">
+        <!-- porta de entrada: o formulário só aparece depois que o backend aceitar a senha -->
+        <form id="gate" class="form-grupo gate" novalidate>
+          <h2 style="font-size:1.8rem">Área restrita</h2>
+          <p>A criação de sedes é liberada por senha. Peça a senha à coordenação do projeto.</p>
+          <div class="campo"><label for="senha">Senha</label><input id="senha" name="senha" type="password" autocomplete="current-password" required></div>
+          <div class="form-acoes" style="margin-top:20px">
+            <button class="botao botao--roxo" type="submit" id="gate-entrar">Entrar</button>
+            <span id="gate-status" role="status" aria-live="polite"></span>
+          </div>
+        </form>
+
+        <form id="form-sede" class="form-sede" novalidate hidden>
+          <div class="honeypot" aria-hidden="true"><label>Não preencha <input name="website" tabindex="-1" autocomplete="off"></label></div>
+
+          <fieldset class="form-grupo">
+            <legend>Sobre a sede</legend>
+            <div class="campos">
+              <div class="campo"><label for="nome">Nome do projeto</label><input id="nome" name="nome" type="text" required value="STEM para meninas"></div>
+              <div class="campo"><label for="nomeSede">Nome da sede</label><input id="nomeSede" name="nomeSede" type="text" required placeholder="Ex.: Unifesp São José dos Campos"></div>
+              <div class="campo"><label for="inst_nome">Instituição</label><input id="inst_nome" name="inst_nome" type="text" required placeholder="Ex.: Universidade Federal de São Paulo"></div>
+              <div class="campo"><label for="sigla">Sigla</label><input id="sigla" name="sigla" type="text" required placeholder="Ex.: Unifesp"></div>
+              <div class="campo"><label for="cidade">Cidade / UF</label><input id="cidade" name="cidade" type="text" required placeholder="Ex.: São José dos Campos - SP"></div>
+              <div class="campo"><label for="slug">Endereço da sede</label><input id="slug" name="slug" type="text" required pattern="[a-z0-9-]{3,40}"><small class="slug-previa" id="slug-previa"></small></div>
+              <div class="campo campo--cheio"><label for="descricao">Frase curta sobre o projeto <span class="opcional">(opcional)</span></label><textarea id="descricao" name="descricao" maxlength="300"></textarea></div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-grupo">
+            <legend>O evento</legend>
+            <div class="campos">
+              <div class="campo"><label for="data">Data</label><input id="data" name="data" type="date" required></div>
+              <div class="campo"><label for="local">Local</label><input id="local" name="local" type="text" required placeholder="Ex.: Museu Interativo de Ciências"></div>
+              <div class="campo campo--cheio"><label for="endereco">Endereço</label><input id="endereco" name="endereco" type="text" required></div>
+              <div class="campo"><label for="idadeMin">Idade mínima</label><input id="idadeMin" name="idadeMin" type="number" min="5" max="18" value="10" required></div>
+              <div class="campo"><label for="idadeMax">Idade máxima</label><input id="idadeMax" name="idadeMax" type="number" min="5" max="18" value="12" required></div>
+            </div>
+            <p class="dica">Horário de Brasília. O início e o fim do evento vêm do cronograma abaixo.</p>
+          </fieldset>
+
+          <fieldset class="form-grupo">
+            <legend>Cronograma</legend>
+            <div class="grupo-linhas" data-grupo="cronograma"></div>
+            <button type="button" class="botao botao--roxo botao--pequeno" data-add="cronograma">+ Adicionar atividade</button>
+          </fieldset>
+
+          <fieldset class="form-grupo">
+            <legend>Imagens</legend>
+            <p class="dica" style="margin-top:12px">Ao lado de cada imagem está a que o site da Unifesp usa hoje. Você escolhe: manter essa ou enviar a sua.</p>
+            <div class="img-lista" id="imagens-padrao"></div>
+            <h3 style="clear:both;margin:28px 0 0;font-size:1.05rem">Sua instituição</h3>
+            <div class="campos">
+              <div class="campo"><label for="img_sede">Foto da instituição <span class="opcional">(opcional)</span></label><input id="img_sede" name="img_sede" type="file" accept="image/*"></div>
+              <div class="campo"><label for="logo_inst">Logo da instituição (colorida)</label><input id="logo_inst" name="logo_inst" type="file" accept="image/*" required></div>
+              <div class="campo"><label for="logo_inst_branco">Logo da instituição (branca) <span class="opcional">(opcional)</span></label><input id="logo_inst_branco" name="logo_inst_branco" type="file" accept="image/*"><small>Usada no cabeçalho escuro. Sem ela, usamos a colorida sobre fundo branco.</small></div>
+            </div>
+            <p class="dica">As imagens enviadas são reduzidas automaticamente antes do envio.</p>
+          </fieldset>
+
+          <fieldset class="form-grupo">
+            <legend>Membros para o carrossel</legend>
+            <div class="grupo-linhas" data-grupo="membros"></div>
+            <button type="button" class="botao botao--roxo botao--pequeno" data-add="membros">+ Adicionar pessoa</button>
+          </fieldset>
+
+          <fieldset class="form-grupo">
+            <legend>Organização e apoiadores</legend>
+            <h3 style="clear:both;margin:18px 0 0;font-size:1.05rem">Instituições organizadoras</h3>
+            <div class="grupo-linhas" data-grupo="organizacao"></div>
+            <button type="button" class="botao botao--roxo botao--pequeno" data-add="organizacao">+ Adicionar organizadora</button>
+            <h3 style="clear:both;margin:28px 0 0;font-size:1.05rem">Apoiadores</h3>
+            <div class="grupo-linhas" data-grupo="apoiadores"></div>
+            <button type="button" class="botao botao--roxo botao--pequeno" data-add="apoiadores">+ Adicionar apoiador</button>
+          </fieldset>
+
+          <fieldset class="form-grupo">
+            <legend>Links</legend>
+            <div class="campos">
+              <div class="campo"><label for="link_inst">Site da instituição <span class="opcional">(opcional)</span></label><input id="link_inst" name="link_inst" type="url" placeholder="https://"></div>
+              <div class="campo"><label for="link_projeto">Site do seu projeto <span class="opcional">(opcional)</span></label><input id="link_projeto" name="link_projeto" type="url" placeholder="https://"></div>
+            </div>
+            <h3 style="clear:both;margin:24px 0 0;font-size:1.05rem">Instagram</h3>
+            <div class="grupo-linhas" data-grupo="instagram"></div>
+            <button type="button" class="botao botao--roxo botao--pequeno" data-add="instagram">+ Adicionar perfil</button>
+            <h3 style="clear:both;margin:24px 0 0;font-size:1.05rem">Outros links</h3>
+            <div class="grupo-linhas" data-grupo="extras"></div>
+            <button type="button" class="botao botao--roxo botao--pequeno" data-add="extras">+ Adicionar link</button>
+          </fieldset>
+
+          <fieldset class="form-grupo">
+            <legend>Textos e cores</legend>
+            <div class="campos">
+              <div class="campo campo--cheio"><label for="textoSobre">Conte a história da sua sede <span class="opcional">(opcional)</span></label><textarea id="textoSobre" name="textoSobre" maxlength="1500"></textarea></div>
+              <div class="campo campo--cheio"><label for="textoParticipacao">Como sua instituição participa da Jornada <span class="opcional">(opcional)</span></label><textarea id="textoParticipacao" name="textoParticipacao" maxlength="1500"></textarea></div>
+              <div class="campo"><label for="corPrincipal">Cor das seções de destaque</label><input id="corPrincipal" name="corPrincipal" type="color" value="#26803a"></div>
+              <div class="campo"><label for="corCabecalho">Cor do cabeçalho</label><input id="corCabecalho" name="corCabecalho" type="color" value="#554aa8"></div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-grupo">
+            <legend>Quem está criando</legend>
+            <div class="campos">
+              <div class="campo"><label for="organizador">Seu nome</label><input id="organizador" name="organizador" type="text" required autocomplete="name"></div>
+              <div class="campo"><label for="email">E-mail</label><input id="email" name="email" type="email" required autocomplete="email"><small>Recebe o link do site e a planilha de inscrições. Use uma conta Google para editar a planilha.</small></div>
+            </div>
+            <label class="check"><input type="checkbox" name="aceite" required><span>Sou responsável por esta sede e pelas imagens enviadas, e confirmo que posso usá-las.</span></label>
+          </fieldset>
+
+          <div class="form-acoes">
+            <button class="botao botao--vermelho botao--grande" type="submit">Criar sede</button>
+            <span id="form-status" role="status" aria-live="polite"></span>
+          </div>
+        </form>
+
+        <div id="resultado" class="resultado" hidden tabindex="-1"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="faixa-cores" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="container"><div class="rodape__base" style="border:0"><span>Jornada Latino-Americana de Oficinas STEM · Ada Lovelace Day</span></div></div>
+  </footer>
+
+  <script src="components/plataforma.js"></script>
+  <script src="components/criar-sede.js"></script>
+</body>
+</html>

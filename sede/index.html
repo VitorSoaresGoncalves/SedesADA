@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Início | Jornada Ada Lovelace</title>
+  <link rel="stylesheet" href="../padrao.css">
+  <link rel="stylesheet" href="../components/componentes.css">
+  <link rel="icon" type="image/png" href="../images/icone.png?v=2">
+  <!-- sempre nesta ordem: plataforma.js, depois boot.js (carrega o resto sozinho) -->
+  <script src="../components/plataforma.js"></script>
+  <script src="../components/boot.js"></script>
+</head>
+<body>
+  <a class="pular" href="#conteudo">Ir para o conteúdo</a>
+  <site-header></site-header>
+
+  <main id="conteudo">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div>
+          <h1>Meninas que descobrem a <span class="marca-texto">ciência e a tecnologia</span> brincando.</h1>
+          <p class="lead">Um dia de oficinas STEM para meninas de <span data-t="evento.idadeMin"></span> a <span data-t="evento.idadeMax"></span> anos, dentro da Jornada Ada Lovelace Day, organizada por <span data-t="instituicao.nome"></span>.</p>
+          <div class="botoes">
+            <a class="botao botao--vermelho botao--grande" href="formulario.html">Inscreva-se</a>
+            <a class="botao botao--roxo botao--grande" data-link="ada" href="#">Site oficial da Jornada ↗</a>
+          </div>
+          <ul class="hero__fatos">
+            <li><span data-t="evento.idadeTexto"></span><small>idade das participantes</small></li>
+            <li><span data-t="evento.dataCurta"></span><small data-t="evento.diaSemana"></small></li>
+            <li><span data-t="evento.local"></span><small data-t="evento.endereco"></small></li>
+          </ul>
+        </div>
+        <div class="hero__midia">
+          <span class="selo selo--amarelo" style="top:0;left:-4px">01000001</span>
+          <span class="selo selo--vermelho" style="top:38%;right:-6px">STEM</span>
+          <span class="selo selo--azul" style="bottom:0;left:12%">Oficinas</span>
+          <img class="imagem-ph imagem-ph--roxo imagem-ph--inclinada" data-src="imagens.hero" alt="Meninas participando de uma oficina STEM">
+        </div>
+      </div>
+    </section>
+    <div class="faixa-cores" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
+    <!-- O QUE É A JORNADA -->
+    <section class="secao secao--roxo">
+      <div class="container bloco">
+        <div class="bloco__texto">
+          <h2>O que é a Jornada Ada Lovelace Day?</h2>
+          <p class="lead">A Jornada Latino-Americana de Oficinas STEM para meninas e mulheres adolescentes é um evento simultâneo, onde diversas sedes da América Latina organizam oficinas STEM para fomentar o interesse na ciência por meninas jovens.</p>
+          <p>Meninas de <span data-t="evento.idadeMin"></span> a <span data-t="evento.idadeMax"></span> anos exploram ciência, tecnologia, engenharia e matemática juntas, com oficinas lúdicas e experimentais.</p>
+          <div class="botoes">
+            <a class="botao botao--amarelo" href="quem-somos.html">Quem somos</a>
+            <a class="botao botao--vermelho" data-link="ada" href="#">Site oficial ↗</a>
+          </div>
+        </div>
+        <div class="bloco__midia"><img class="imagem-experimento" data-src="imagens.sobre" alt="Menina realizando um experimento científico"></div>
+      </div>
+    </section>
+
+    <!-- INSCRIÇÃO EM 3 ETAPAS -->
+    <section class="secao secao--verde-unifesp secao--binario">
+      <div class="container">
+        <div class="cabecalho-secao">
+          <div>
+            <h2>Inscrição em 3 etapas</h2>
+            <p>Esta inscrição é para a <strong>sede <span data-t="nomeSede"></span></strong>. Uma inscrição por menina, feita por um adulto responsável.</p>
+            <div class="botoes"><a class="botao botao--amarelo" href="formulario.html">Ir para o formulário</a></div>
+          </div>
+          <div class="grade grade--3">
+            <article class="cartao cartao--claro"><div class="cartao__num">1</div><h3>Preencha o formulário</h3><p>O responsável informa os dados da menina e os próprios contatos.</p></article>
+            <article class="cartao cartao--claro"><div class="cartao__num">2</div><h3>Receba o e-mail</h3><p>Enviamos uma confirmação de recebimento. Confira também o spam.</p></article>
+            <article class="cartao cartao--claro"><div class="cartao__num">3</div><h3>Venha para a Jornada</h3><p>Faça parte dessa experiência única conosco e venha experimentar e se aventurar pelo mundo STEM!</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUANDO -->
+    <section class="secao secao--amarelo secao--quando">
+      <div class="container quando">
+        <div class="quando__imagem"><img data-src="imagens.cartaz" alt="Inscrições abertas"></div>
+        <div class="quando__texto">
+          <h2>Quando é a Jornada?</h2>
+          <p class="lead">
+            <span data-t="evento.dataTexto"></span>, <span data-t="evento.horario"></span>.<br>
+            <span data-t="evento.local"></span> - <span data-t="evento.endereco"></span>
+          </p>
+          <contador-evento></contador-evento>
+        </div>
+        <cronograma-evento></cronograma-evento>
+      </div>
+    </section>
+
+    <!-- MULHERES NA STEM -->
+    <section class="secao">
+      <div class="container bloco bloco--invertido">
+        <div class="bloco__texto">
+          <h2>Mulheres na STEM</h2>
+          <p class="lead">Ada Lovelace escreveu o que é considerado o primeiro programa de computador, em 1843.</p>
+          <p>Conheça a história dela e de outras cientistas que abriram caminho para as meninas de hoje.</p>
+          <div class="botoes"><a class="botao botao--roxo" href="mulheres-na-stem.html">Conheça as histórias</a></div>
+        </div>
+        <div class="bloco__midia"><img class="imagem-foto" data-src="imagens.mulheres" alt="Meninas na STEM"></div>
+      </div>
+    </section>
+
+    <!-- MEMBROS -->
+    <carrossel-membros titulo="Quem faz acontecer" texto="Estudantes, professoras e professores que preparam cada oficina."></carrossel-membros>
+
+    <section class="secao secao--verde-unifesp secao--binario">
+      <div class="container" style="text-align:center">
+        <h2 style="margin-inline:auto;max-width:20ch">Garanta a vaga da sua menina</h2>
+        <p class="lead" style="margin-inline:auto">As vagas da sede são limitadas e a inscrição é feita pelo responsável.</p>
+        <div class="botoes" style="justify-content:center">
+          <a class="botao botao--vermelho botao--grande" href="formulario.html">Inscreva-se</a>
+          <a class="botao botao--branco botao--grande" data-link="ada" href="#">Site oficial da Jornada ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <site-footer></site-footer>
+  <!-- sem <script> aqui: o boot.js carrega header, footer, carrossel, contador, cronograma e formulário -->
+</body>
+</html>

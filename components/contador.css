@@ -1,0 +1,7 @@
+/* Estilos do <contador-evento> */
+.contador { display: flex; gap: 12px; }
+.contador__cel { display: flex; flex-direction: column; align-items: center; min-width: 82px; padding: 16px 8px 12px; border-radius: 22px; background: var(--tinta); color: var(--branco); }
+.contador__cel span { font: 800 2.4rem/1 var(--fonte-titulo); font-variant-numeric: tabular-nums; letter-spacing: -.04em; }
+.contador__cel small { font: 700 .72rem var(--fonte-texto); margin-top: 6px; color: var(--amarelo); }
+.contador__fim { font: 800 1.7rem var(--fonte-titulo); margin: 0; }
+@media (max-width: 420px) { .contador { gap: 8px; } .contador__cel { min-width: 66px; border-radius: 18px; } .contador__cel span { font-size: 1.8rem; } }

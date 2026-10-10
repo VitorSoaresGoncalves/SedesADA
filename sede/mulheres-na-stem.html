@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mulheres na STEM | Jornada Ada Lovelace · Unifesp</title>
+  <link rel="stylesheet" href="../padrao.css">
+  <link rel="stylesheet" href="../components/componentes.css">
+  <link rel="icon" type="image/png" href="../images/icone.png">
+  <!-- sempre nesta ordem: plataforma.js, depois boot.js (carrega o resto sozinho) -->
+  <script src="../components/plataforma.js"></script>
+  <script src="../components/boot.js"></script>
+</head>
+<body>
+  <a class="pular" href="#conteudo">Ir para o conteúdo</a>
+  <site-header></site-header>
+
+  <main id="conteudo">
+    <section class="hero hero-pagina">
+      <div class="container">
+        <h1>Mulheres na <span class="marca-texto">STEM</span></h1>
+        <p class="lead">Ciência, tecnologia, engenharia e matemática também são lugares de mulheres, e sempre foram.</p>
+      </div>
+    </section>
+    <div class="faixa-cores" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
+    <section class="secao">
+      <div class="container bloco">
+        <div class="bloco__texto">
+          <h2>Quem foi Ada Lovelace?</h2>
+          <p class="lead">Ada Lovelace (1815–1852) foi uma matemática britânica nascida em Londres em 1815, conhecida por seu trabalho na máquina analítica de Charles Babbage. Nesses escritos, ela descreveu um passo a passo detalhado para calcular os números de Bernoulli na máquina, criando o primeiro algoritmo para ser processado em uma máquina.</p>
+          <p>Ela é considerada a primeira programadora da história. Desde 2009, o Ada Lovelace Day é celebrado todos os anos para dar visibilidade às conquistas de mulheres nas carreiras de ciência e tecnologia.</p>
+        </div>
+        <div class="bloco__midia"><img class="imagem-foto" src="../images/AdaLovelace.jpeg" alt="Retrato desenhado Ada Lovelace"></div>      
+      </div>
+    </section>
+
+    <section class="secao secao--vermelho">
+      <div class="container bloco bloco--invertido" style="--tile: var(--vermelho-claro);">        <div class="bloco__texto">
+          <h2>Por que falar de mulheres na STEM?</h2>
+          <p>Embora as mulheres tenham contribuído para importantes avanços científicos e tecnológicos, muitas delas não receberam a visibilidade e o reconhecimento que seriam justos por suas contribuições. Isso acaba refletindo na pouca representatividade feminina nas áreas de STEM.</p>
+          <p>Por isso, é importante que haja representatividade feminina nesses locais. Ao conhecer e ter contato com mulheres que atuam na ciência e na tecnologia, essas meninas podem encontrar referências que mostrem que esses espaços também lhes pertencem.</p>
+          <p><strong>A presença de mulheres na STEM é essencial para uma ciência mais diversa!</strong></p>
+        </div>
+        <div class="bloco__midia"><img class="imagem-foto" src="../images/pq-mulheres-stem.PNG" alt="Meninas desenhando e escrevendo durante uma oficina do Ada Lovelace Day"></div>      
+    </section>
+
+    <section class="secao">
+      <div class="container">
+        <h2>Cientistas para conhecer</h2>
+        <p class="lead">Mulheres para se inspirar!</p>
+        <div class="grade grade--4" style="margin-top:40px">
+          <article>
+            <img class="foto-cientista" src="../images/MarieCurie.png" alt="Retrato de Marie Curie">
+            <h3 style="margin-top:28px">Marie Curie</h3>
+            <p>Foi pioneira no estudo da radioatividade e descobriu os elementos polônio e rádio, tornando-se a primeira pessoa a receber dois Prêmios Nobel em áreas científicas diferentes.</p>
+          </article>
+          <article>
+            <img class="foto-cientista" src="../images/Rosalind.jpg" alt="Retrato de Rosalind Franklin">
+            <h3 style="margin-top:28px">Rosalind Franklin</h3>
+            <p>Química e biofísica, seus estudos com difração de raios X foram fundamentais para revelar a estrutura do DNA.</p>
+          </article>
+          <article>
+            <img class="foto-cientista" src="../images/Grace.jpg" alt="Retrato de Grace Hopper">
+            <h3 style="margin-top:28px">Grace Hopper</h3>
+            <p>Cientista da computação americana e contra-almirante da Marinha dos EUA, inventou a primeira linguagem de programação a usar palavras em inglês. Ela é considerada uma das principais inventoras da linguagem COBOL</p>
+          </article>
+          <article>
+            <img class="foto-cientista" src="../images/Katherine.png" alt="Retrato de Katherine Johnson">
+            <h3 style="margin-top:28px">Katherine Johnson</h3>
+            <p>Matemática, seus cálculos foram fundamentais para as trajetórias das missões espaciais da NASA, incluindo a missão que levou John Glenn a orbitar a Terra.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao--roxo secao--binario">
+      <div class="container" style="text-align:center">
+        <h2 style="margin-inline:auto;max-width:20ch">Vem descobrir com a gente</h2>
+        <p class="lead" style="margin-inline:auto">Inscreva sua menina na sede da Unifesp.</p>
+        <div class="botoes" style="justify-content:center">
+          <a class="botao botao--vermelho botao--grande" href="formulario.html">Inscreva-se</a>
+          <a class="botao botao--branco botao--grande" data-link="ada" href="#">Site oficial da Jornada ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <site-footer></site-footer>
+  <!-- sem <script> aqui: o boot.js carrega os componentes -->
+</body>
+</html>

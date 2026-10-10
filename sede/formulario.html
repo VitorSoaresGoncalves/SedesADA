@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inscrição | Jornada Ada Lovelace · Unifesp</title>
+  <link rel="stylesheet" href="../padrao.css">
+  <link rel="stylesheet" href="../components/componentes.css">
+  <link rel="icon" type="image/png" href="../images/icone.png">
+  <!-- sempre nesta ordem: plataforma.js, depois boot.js (carrega o resto sozinho) -->
+  <script src="../components/plataforma.js"></script>
+  <script src="../components/boot.js"></script>
+</head>
+<body>
+  <a class="pular" href="#conteudo">Ir para o conteúdo</a>
+  <site-header></site-header>
+
+  <main id="conteudo">
+    <section class="hero hero-pagina">
+      <div class="container">
+        <h1>Inscrição na <span class="marca-texto">Jornada</span></h1>
+        <p class="lead">Formulário da sede <span data-t="nomeSede"></span>. Preenchido por um adulto responsável, uma inscrição para cada menina.</p>
+      </div>
+    </section>
+    <div class="faixa-cores" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
+    <section class="secao secao--creme">
+      <div class="container form-layout">
+        <div>
+          <form id="form-inscricao" novalidate>
+            <div class="honeypot" aria-hidden="true"><label>Não preencha <input name="website" tabindex="-1" autocomplete="off"></label></div>
+
+            <fieldset class="form-grupo">
+              <legend>Sobre a menina</legend>
+              <div class="campos">
+                <div class="campo campo--cheio"><label for="nome_participante">Nome completo</label><input id="nome_participante" name="nome_participante" type="text" required autocomplete="off" data-nome="Nome da participante"></div>
+                <div class="campo"><label for="nascimento">Data de nascimento</label><input id="nascimento" name="nascimento" type="date" required ><small>Idade de 10 a 12 anos no dia da Jornada.</small></div>
+                <div class="campo"><label for="ano_escolar">Ano escolar</label><select id="ano_escolar" name="ano_escolar" required><option value="">Selecione</option><option>4º ano</option><option>5º ano</option><option>6º ano</option><option>7º ano</option><option>8º ano</option></select></div>
+                <div class="campo campo--cheio"><label for="escola">Escola</label><input id="escola" name="escola" type="text" required ></div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-grupo">
+              <legend>Sobre o responsável</legend>
+              <div class="campos">
+                <div class="campo campo--cheio"><label for="nome_responsavel">Nome completo</label><input id="nome_responsavel" name="nome_responsavel" type="text" required autocomplete="name" data-nome="Nome do responsável"></div>
+                <div class="campo campo--cheio"><label for="documento_responsavel">Número do documento de identidade</label><input id="documento_responsavel" name="documento_responsavel" type="text" required autocomplete="off"></div>
+                <div class="campo"><label for="parentesco">Parentesco</label><select id="parentesco" name="parentesco" required><option value="">Selecione</option><option>Mãe</option><option>Pai</option><option>Avó / avô</option><option>Tia / tio</option><option>Responsável legal</option><option>Outro</option></select></div>
+                <div class="campo"><label for="telefone">Telefone / WhatsApp</label><input id="telefone" name="telefone" type="tel" required autocomplete="tel" placeholder="(11) 90000-0000"></div>
+                <div class="campo campo--cheio"><label for="email">E-mail</label><input id="email" name="email" type="email" required autocomplete="email"><small>Enviaremos a confirmação de recebimento para este e-mail.</small></div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-grupo">
+              <legend>Informações extras</legend>
+              <div class="campos">
+                <div class="campo campo--cheio"><label for="observacoes">Alguma necessidade de acessibilidade? <span class="opcional">(opcional)</span></label><textarea id="observacoes" name="observacoes"></textarea></div>
+                <div class="campo campo--cheio"><label for="origem">Como conheceu a Jornada? <span class="opcional">(opcional)</span></label><select id="origem" name="origem"><option value="">Selecione</option><option>Escola</option><option>Instagram</option><option>Amigos ou família</option><option>Site da Unifesp</option><option>Outro</option></select></div>
+              </div>
+            </fieldset>
+
+            <fieldset class="form-grupo">
+              <legend>Autorizações</legend>
+              <label class="check"><input type="checkbox" name="consentimento_dados" value="sim" required data-nome="Autorização de uso dos dados"><span>Sou responsável legal pela menina e autorizo o uso dos dados informados para a organização da Jornada, conforme a LGPD.</span></label>              <label class="check"><input type="checkbox" name="autorizacao_imagem" value="sim" required data-nome="Autorização de uso de imagem"><span>Autorizo o uso de fotos e vídeos da menina em divulgações do projeto.</span></label>            </fieldset>
+
+            <div class="form-acoes">
+              <button class="botao botao--vermelho botao--grande" type="submit">Enviar inscrição</button>
+              <span id="form-status" role="status" aria-live="polite"></span>
+            </div>
+          </form>
+
+          <div id="form-sucesso" class="form-sucesso" hidden tabindex="-1">
+            <p id="aviso-demo" class="aviso-demo" hidden>Modo demonstração: nenhum dado foi enviado. Ligue o backend em <code>apiUrl</code>, no arquivo <code>components/plataforma.js</code>.</p>
+            <h2>Inscrição recebida!</h2>
+            <p>Enviamos uma confirmação para <strong id="email-confirmado"></strong>. Se não encontrar, confira a caixa de spam.</p>
+            <p>Receber este e-mail confirma o recebimento dos dados.</p>
+            <div class="botoes"><a class="botao botao--amarelo" href="../index.html">Voltar ao início</a></div>
+          </div>
+        </div>
+
+        <aside class="form-lateral" aria-label="Informações importantes">
+          <img class="imagem-ph imagem-ph--amarelo" style="--ratio:4 / 3" data-src="imagens.hero" alt="Meninas em oficina">
+          <div class="cartao cartao--roxo">
+            <h3>Antes de começar</h3>
+            <ul>
+              <li>Esta inscrição vale apenas para a sede <span data-t="nomeSede"></span>.</li>
+              <li>Preencha com os dados do responsável.</li>
+              <li><span data-t="evento.dataTexto"></span>. <span data-t="evento.local"></span> - <span data-t="evento.endereco"></span></li>
+            </ul>
+            <p>Procurando outra sede? <a data-link="ada" href="#">Veja o site oficial ↗</a></p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <site-footer></site-footer>
+  <!-- sem <script> aqui: o boot.js carrega os componentes -->
+</body>
+</html>

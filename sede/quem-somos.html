@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quem somos | Jornada Ada Lovelace · Unifesp</title>
+  <link rel="stylesheet" href="../padrao.css">
+  <link rel="stylesheet" href="../components/componentes.css">
+  <link rel="icon" type="image/png" href="../images/icone.png">
+  <!-- sempre nesta ordem: plataforma.js, depois boot.js (carrega o resto sozinho) -->
+  <script src="../components/plataforma.js"></script>
+  <script src="../components/boot.js"></script>
+</head>
+<body>
+  <a class="pular" href="#conteudo">Ir para o conteúdo</a>
+  <site-header></site-header>
+
+  <main id="conteudo">
+    <section class="hero hero-pagina hero-quemS">
+      <div class="container">
+        <h1>Quem <span class="marca-texto">somos</span></h1>
+        <p class="lead">Uma equipe que acredita que ciência também é lugar de menina.</p>
+      </div>
+    </section>
+    <div class="faixa-cores" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
+    <section class="secao secao--creme">
+      <div class="container bloco bloco--mapa">
+        <div class="bloco__texto">
+          <h2>O projeto</h2>
+          <p class="lead">O Ada Lovelace Day é uma celebração que homenageia Ada Lovelace, considerada uma das pioneiras da programação, e busca reconhecer e incentivar a participação de meninas e mulheres nas áreas de Ciência, Tecnologia, Engenharia e Matemática (STEM).</p>
+          <p>A Jornada nasceu na Argentina, em 2022, com o objetivo de aproximar meninas das áreas de Ciência, Tecnologia, Engenharia e Matemática (STEM). Desde então, a iniciativa vem crescendo e atualmente reúne instituições de diferentes países da América Latina em uma rede de atividades voltadas ao incentivo à participação feminina nas áreas STEM. No Brasil, a organização nacional da Jornada está a cargo do Comitê Temático Mulheres na Matemática Aplicada e Computacional da Sociedade Brasileira de Matemática Aplicada e Computacional (SBMAC).</p>
+          <p data-t="textos.sobreSede" data-if="textos.sobreSede"></p>
+        </div>
+        <div class="bloco__midia"><img data-src="imagens.mapa" alt="Mapa da Jornada Ada Lovelace" style="position: relative; z-index: 20; display: block; width: 100%; height: auto; object-fit: contain;"></div>
+      </div>
+    </section>
+  
+
+    <section class="secao secao--verde-unifesp">
+      <div class="container bloco bloco--invertido">
+        <div class="bloco__texto">
+          <h2>Nossa participação na Jornada</h2>
+          <p>O Ada Lovelace Day: 5ª Jornada Latino-Americana de Oficinas STEM para Meninas é um evento de alcance latino-americano que busca incentivar a participação de meninas nas áreas de Ciência, Tecnologia, Engenharia e Matemática (STEM).</p>
+          <p data-t="textos.participacao" data-if="textos.participacao"></p>
+          <div class="botoes"><a class="botao botao--vermelho" data-link="ada" href="#">Conheça a Jornada ↗</a></div>
+        </div>
+        <div class="bloco__midia"><img data-src="imagens.sede" alt="Sede da UNIFESP" style="position: relative; z-index: 20; display: block; width: 100%; height: auto; object-fit: contain;"></div>
+      </div>
+    </section>
+
+    <carrossel-membros titulo="Nossa equipe" texto="[Frase curta sobre a equipe.]"></carrossel-membros>
+
+    <section class="secao secao--roxo secao--binario">
+      <div class="container" style="text-align:center">
+        <h2 style="margin-inline:auto;max-width:20ch">Venha fazer parte da Jornada</h2>
+        <p class="lead" style="margin-inline:auto">Inscreva sua menina na sede da Unifesp.</p>
+        <div class="botoes" style="justify-content:center">
+          <a class="botao botao--vermelho botao--grande" href="formulario.html">Inscreva-se</a>
+          <a class="botao botao--branco botao--grande" data-link="ada" href="#">Site oficial da Jornada ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <site-footer></site-footer>
+  <!-- sem <script> aqui: o boot.js carrega os componentes -->
+</body>
+</html>

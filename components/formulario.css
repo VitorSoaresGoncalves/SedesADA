@@ -1,0 +1,95 @@
+/* Estilos do formulário de inscrição */
+.form-layout { display: grid; grid-template-columns: 1.5fr 1fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
+
+.form-grupo { --cor: var(--roxo); border: 0; margin: 0 0 24px; min-width: 0; padding: 30px 30px 30px; border-radius: var(--raio); background: var(--branco); }
+.form-grupo:nth-of-type(2) { --cor: var(--vermelho); }
+.form-grupo:nth-of-type(3) { --cor: var(--verde); }
+.form-grupo:nth-of-type(4) { --cor: var(--azul); }
+.form-grupo legend {
+  display: flex; align-items: center; gap: 14px; padding: 0; float: left; width: 100%; margin-bottom: 4px;
+  font: 800 1.45rem/1.1 var(--fonte-titulo); letter-spacing: -.03em;
+}
+.form-grupo legend::before { content: ""; width: 34px; height: 34px; border-radius: 50%; background: var(--cor); flex-shrink: 0; box-shadow: inset 0 0 0 9px var(--cor), inset 0 0 0 17px #fff; }
+.campos { clear: both; display: grid; grid-template-columns: 1fr 1fr; gap: 20px 22px; padding-top: 20px; }
+.campo { display: flex; flex-direction: column; gap: 7px; }
+.campo--cheio { grid-column: 1 / -1; }
+.campo label { font-weight: 700; font-size: .93rem; }
+.campo label .opcional { font-weight: 400; opacity: .6; }
+.campo input, .campo select, .campo textarea {
+  font: inherit; padding: 14px 16px; width: 100%; color: var(--tinta); background: var(--papel);
+  border: 2px solid transparent; border-radius: 16px; transition: border-color .2s, background .2s, box-shadow .2s;
+}
+.campo input:hover, .campo select:hover, .campo textarea:hover { border-color: color-mix(in srgb, var(--roxo) 35%, transparent); }
+.campo input:focus, .campo select:focus, .campo textarea:focus { outline: none; background: var(--branco); border-color: var(--roxo); box-shadow: 0 0 0 4px color-mix(in srgb, var(--roxo) 18%, transparent); }
+.campo textarea { min-height: 100px; resize: vertical; }
+.campo small { opacity: .68; font-size: .82rem; }
+.check { display: flex; gap: 12px; align-items: flex-start; margin-top: 18px; font-size: .95rem; clear: both; }
+.check:first-of-type { padding-top: 14px; }
+.check input { width: 22px; height: 22px; margin-top: 2px; flex-shrink: 0; accent-color: var(--roxo); }
+.check span { max-width: 60ch; }
+.honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-acoes { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.form-acoes .botao[disabled] { opacity: .6; cursor: wait; }
+#form-status { font-weight: 600; }
+
+.form-sucesso { padding: clamp(28px, 4vw, 48px); border-radius: var(--raio); background: var(--verde); color: var(--branco); }
+.form-sucesso h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); }
+.form-sucesso strong { background: var(--branco); color: var(--tinta); padding: 1px 10px; border-radius: 999px; }
+.aviso-demo { background: var(--amarelo); color: var(--tinta); padding: 12px 18px; font-weight: 600; margin-bottom: 24px; border-radius: 16px; }
+
+.form-lateral { position: sticky; top: 118px; display: grid; gap: 28px; }
+.form-lateral ul { margin: 0 0 1em; padding-left: 1.2em; }
+.form-lateral li { margin-bottom: .5em; }
+
+@media (max-width: 960px) { .form-layout { grid-template-columns: 1fr; } .form-lateral { position: static; } }
+@media (max-width: 560px) { .campos { grid-template-columns: 1fr; } .form-grupo { padding: 24px 20px; } }
+
+/* ---------- Avisos de erro do formulário ---------- */
+:root { --erro: #C81E1E; }   /* vermelho dos erros (mais escuro, para dar leitura no fundo branco) */
+
+/* Campo com problema: nome e borda em vermelho */
+.campo.com-erro label, .check.com-erro { color: var(--erro); }
+.campo.com-erro input, .campo.com-erro select, .campo.com-erro textarea {
+  border-color: var(--erro);
+  background: color-mix(in srgb, var(--erro) 7%, var(--branco));
+}
+.check.com-erro input { outline: 2px solid var(--erro); outline-offset: 2px; }
+.com-erro { animation: tremer .45s ease-in-out; }
+
+@keyframes tremer {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-7px); }
+  40%, 80% { transform: translateX(7px); }
+}
+
+/* Aviso que desce no topo da tela */
+.aviso-erro {
+  position: fixed; top: 16px; left: 50%; z-index: 100;
+  width: min(560px, calc(100% - 32px));
+  padding: 16px 52px 16px 20px; border-radius: 18px;
+  background: var(--erro); color: var(--branco);
+  box-shadow: 0 18px 40px -12px rgba(30, 26, 60, .55);
+  font-size: .95rem; line-height: 1.45;
+  transform: translateX(-50%);
+  animation: aviso-entra .45s cubic-bezier(.2, .9, .3, 1.15) both;
+}
+.aviso-erro p { margin: 0 0 6px; max-width: none; }
+.aviso-erro p:last-of-type { margin-bottom: 0; }
+.aviso-erro__fechar {
+  position: absolute; top: 10px; right: 10px; width: 32px; height: 32px;
+  border: 0; border-radius: 50%; background: transparent; color: inherit;
+  font-size: 1.5rem; line-height: 1; cursor: pointer;
+}
+.aviso-erro__fechar:hover { background: rgba(255, 255, 255, .2); }
+
+@keyframes aviso-entra {
+  from { transform: translate(-50%, -140%); opacity: 0; }
+  to   { transform: translate(-50%, 0);     opacity: 1; }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .com-erro, .aviso-erro { animation: none; }
+}
+
+.check.com-erro > span::after { content: "Campo obrigatório"; display: block; margin-top: 4px; font-weight: 700; font-size: .85rem; }

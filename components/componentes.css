@@ -1,0 +1,8 @@
+/* Importa a estilização de todos os componentes (as páginas só linkam este arquivo) */
+@import url('header.css');
+@import url('footer.css');
+@import url('carrossel-membros.css');
+@import url('contador.css');
+@import url('formulario.css');
+@import url('cronograma-evento.css');
+

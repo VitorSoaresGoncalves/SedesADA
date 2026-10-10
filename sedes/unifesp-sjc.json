@@ -1,0 +1,64 @@
+{
+  "nome": "STEM para meninas",
+  "nomeSede": "Unifesp São José dos Campos",
+  "subtitulo": "Jornada Ada Lovelace · Unifesp",
+  "descricaoCurta": "Projeto de extensão da Unifesp que leva ciência, tecnologia e matemática para meninas de 10 a 12 anos.",
+  "cidade": "São José dos Campos - SP",
+  "instituicao": { "nome": "Universidade Federal de São Paulo (Unifesp)", "sigla": "Unifesp" },
+  "evento": {
+    "data": "2026-11-07T08:00:00-03:00",
+    "dataTexto": "Sábado, 7 de novembro de 2026",
+    "dataCurta": "7 de novembro",
+    "diaSemana": "sábado",
+    "horario": "das 8h às 13h",
+    "local": "MIC - Museu Interativo de Ciências",
+    "endereco": "R. Prof. Felício Savastano - São José dos Campos",
+    "idadeMin": 10,
+    "idadeMax": 12
+  },
+  "links": { "ada": "https://adalovelace.net.ar", "instituicao": "https://portal.unifesp.br", "projeto": "" },
+  "linksExtras": [ { "nome": "Números Primos e Criptografia", "url": "https://numeros-primos-theta.vercel.app" } ],
+  "instagram": [
+    { "nome": "@numerosprimos_cripto", "url": "https://www.instagram.com/numerosprimos_cripto/" },
+    { "nome": "@jornadasada", "url": "https://www.instagram.com/jornadasada/" },
+    { "nome": "@adalovelace.unifesp", "url": "https://www.instagram.com/adalovelace.unifesp/" },
+    { "nome": "@unifesp", "url": "https://www.instagram.com/unifespoficial/" }
+  ],
+  "logos": {
+    "instituicao": { "nome": "Unifesp", "img": "images/logo-unifesp.png" },
+    "instituicaoBranco": { "nome": "Unifesp", "img": "images/logo-unifesp-branco.png" }
+  },
+  "apoiadores": [
+    { "nome": "IMPA", "img": "images/logo-impa.png", "url": "https://impa.br/" },
+    { "nome": "FGV EMAp", "img": "images/logo-fgv.png", "url": "https://emap.fgv.br/" },
+    { "nome": "SBMAC", "img": "images/logo-sbmac.png", "url": "https://www.sbmac.org.br/" },
+    { "nome": "SEGLABS", "img": "images/logo-seglabs.png", "url": "https://seglabs.io" }
+  ],
+  "organizacao": {
+    "titulo": "Organização",
+    "logos": [
+      { "nome": "Unifesp", "img": "images/logo-unifesp.png", "url": "https://www.unifesp.br" },
+      { "nome": "Mulheres da SBMAC", "img": "images/sbmacm-logo.png", "url": "https://www.mulheressbmac.com.br" },
+      { "nome": "MIC", "img": "images/mic-logo.jpeg", "url": "https://www.sjc.sp.gov.br/servicos/educacao-e-cidadania/museu-interativo-de-ciencias" }
+    ]
+  },
+  "membros": [
+    { "nome": "[Nome Sobrenome]", "funcao": "Coordenação", "curso": "[Curso / Departamento]" },
+    { "nome": "[Nome Sobrenome]", "funcao": "Oficineira", "curso": "[Curso]" },
+    { "nome": "[Nome Sobrenome]", "funcao": "Oficineiro", "curso": "[Curso]" },
+    { "nome": "[Nome Sobrenome]", "funcao": "Comunicação", "curso": "[Curso]" }
+  ],
+  "imagens": {
+    "hero": "images/menina-experimento.png",
+    "sobre": "images/poster-stem.png",
+    "cartaz": "images/inscricoes-abertas.png",
+    "mulheres": "images/meninas-stem.png",
+    "mapa": "images/mapa-ada.png",
+    "sede": "images/sede-unifesp.webp"
+  },
+  "textos": {
+    "sobreSede": "Em São José dos Campos, esta será a primeira realização da Jornada, tendo como sede o Museu Interativo de Ciências (MIC).",
+    "participacao": "Em 2026, a UNIFESP participa como uma das instituições organizadoras, contribuindo para ampliar o acesso, a representatividade e o interesse de meninas pela ciência e pela tecnologia."
+  },
+  "tema": { "corPrincipal": "#26803a", "corCabecalho": "#554aa8" }
+}

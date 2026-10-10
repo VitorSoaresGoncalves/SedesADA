@@ -11,7 +11,7 @@
   var COMPONENTES = ['header', 'footer', 'carrossel-membros', 'contador', 'cronograma-evento', 'formulario'];
 
   var q = new URLSearchParams(location.search);
-  var mPath = location.pathname.match(/\/s\/([^\/]+)/);
+  var mPath = location.pathname.match(/\/(?:sede|s)\/([a-z0-9-]+)(?:\/|$)/i);
   var slug = (q.get('s') || (mPath && mPath[1]) || '').toLowerCase().replace(/[^a-z0-9-]/g, '');
   var preview = q.get('preview') || '';
 
@@ -97,7 +97,9 @@
     S.url = function (c) {
       var m = c.match(/^(?:\.\.\/|\.\/|pages\/|sede\/)?([\w-]+)\.html(?:\?.*)?$/);
       if (m && PAGINAS.indexOf(m[1]) > -1)
-        return root + 'sede/' + m[1] + '.html?s=' + slug + (preview ? '&preview=' + encodeURIComponent(preview) : '');
+        if (m && PAGINAS.indexOf(m[1]) > -1)
+          return root + 'sede/' + slug + (m[1] === 'index' ? '' : '/' + m[1]) +
+                (preview ? '?preview=' + encodeURIComponent(preview) : '');
       return /^(https?:|data:)/.test(c) ? c : root + c;
     };
 

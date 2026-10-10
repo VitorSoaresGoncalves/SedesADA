@@ -31,7 +31,7 @@
       }).join('') + (S.opcoes.linkHub ? '<li><a href="' + S.root + 'index.html">Todas as sedes</a></li>' : '');
 
       var logos =
-        S.logo(S.logos.unifesp, 'rodape__logo') +
+        S.logo(S.logos.instituicao, 'rodape__logo') +
         S.logo(S.logos.ada, 'rodape__logo');
 
       // Créditos: quem desenvolveu o site (lista "desenvolvedores" no config.js)

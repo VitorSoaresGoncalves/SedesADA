@@ -67,7 +67,7 @@
         var li = document.createElement('li'), a = document.createElement('a');
         a.className = 'sede-card' + (cor === 'amarelo' ? ' sede-card--amarelo' : '');
         a.style.setProperty('--cor', 'var(--' + cor + ')');
-        a.href = 'sede/index.html?s=' + encodeURIComponent(s.slug);
+        a.href = P.root + 'sede/' + encodeURIComponent(s.slug);
         if (s.logo) {
           var box = document.createElement('div'), img = document.createElement('img');
           box.className = 'sede-card__logo'; img.src = P.url(s.logo); img.alt = '';

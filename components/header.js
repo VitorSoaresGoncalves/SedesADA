@@ -14,10 +14,10 @@
 
   class SiteHeader extends HTMLElement {
     connectedCallback() {
-      var atual = location.pathname.split('/').pop() || 'index.html';
-      if (!/\.html$/.test(atual)) atual = 'index.html';   // /s/slug = home da sede
+      var seg = location.pathname.replace(/\/$/, '').split('/').pop().replace(/\.html$/, '');
+      var atual = ['quem-somos', 'mulheres-na-stem', 'formulario'].indexOf(seg) > -1 ? seg : 'index';
       var itens = paginas.map(function (p) {
-        var nome = p[1].split('/').pop();
+        var nome = p[1].split('/').pop().replace(/\.html$/, '');
         var ativo = nome === atual ? ' aria-current="page"' : '';
         return '<li><a href="' + S.url(p[1]) + '"' + ativo + '>' + p[0] + '</a></li>';
       }).join('');
@@ -35,7 +35,7 @@
       this.innerHTML =
         '<header class="cabecalho"><div class="container cabecalho__in">' +
           '<a class="marca" href="' + S.url('index.html') + '">' +
-            S.logo(S.logos.unifespBranco, 'marca__logo') +
+            S.logo(S.logos.instituicaoBranco, 'marca__logo') +
             S.logo(S.logos.adaBranco, 'marca__logo') +
             '<span class="marca__nome"><strong>' + S.nome + '</strong><small>' + S.subtitulo + '</small></span>' +
           '</a>' +

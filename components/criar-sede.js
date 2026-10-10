@@ -137,7 +137,7 @@
     return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40);
   }
   var slugEl = form.elements.slug, previa = document.getElementById('slug-previa'), slugManual = false;
-  function atualizarPrevia() { previa.textContent = slugEl.value ? 'Seu site: ' + P.root + 's/' + slugEl.value : ''; }
+  function atualizarPrevia() { previa.textContent = slugEl.value ? 'Seu site: ' + P.root + 'sede/' + slugEl.value : ''; }
   slugEl.addEventListener('input', function () { slugManual = true; slugEl.value = slugify(slugEl.value); atualizarPrevia(); });
   ['sigla', 'cidade'].forEach(function (n) {
     form.elements[n].addEventListener('input', function () {

@@ -1,5 +1,7 @@
 {
   "rewrites": [
+    { "source": "/sede/:slug/:pagina(quem-somos|mulheres-na-stem|formulario)", "destination": "/sede/:pagina.html" },
+    { "source": "/sede/:slug", "destination": "/sede/index.html" },
     { "source": "/s/:slug", "destination": "/sede/index.html" }
   ]
 }

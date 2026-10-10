@@ -8,7 +8,7 @@
 
     // URL do Google Apps Script publicado (apps-script/Code.gs).
     // Vazio = MODO LOCAL: lê sedes/<slug>.json e sedes/index.json e NÃO pede senha (bom para testar).
-    apiUrl: 'https://script.google.com/macros/s/AKfycbxBdMuCKkZ7DZaFpi-kYyuvuMAIiCcBvocOmWfgS3c_LrGLclLiBjCZssdD-bCQsJAlWg/exec',
+    apiUrl: 'https://script.google.com/macros/s/AKfycbxmg7_OET9ama_PAdVxHTeBiUjkzI0MFgZA58NK1Rt396vqhJmw6a5QOgz42ztJNKmhfg/exec',
 
     // Imagens padrão = as usadas hoje no site da Unifesp. Ao criar uma sede, a pessoa
     // vê cada uma ao lado e escolhe: manter esta ou enviar outra.
